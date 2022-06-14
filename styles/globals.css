@@ -14,3 +14,8 @@
     transition duration-200 ease-out;
   }
 }
+@layer components {
+  .no-cursor {
+    @apply cursor-not-allowed;
+  }
+}
