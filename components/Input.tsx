@@ -6,16 +6,32 @@ import {
   XIcon,
 } from "@heroicons/react/outline";
 import React, { useRef, useState } from "react";
+import { db, storage } from "../firebase";
+import {
+  addDoc,
+  collection,
+  doc,
+  serverTimestamp,
+  updateDoc,
+} from "@firebase/firestore";
+import { getDownloadURL, ref, uploadString } from "@firebase/storage";
 export default function Input() {
   const [input, setInput] = useState("");
   const [selectedFile, setSelectedFile] = useState(null);
   const filePickerRef = useRef(null);
   const [loading, setLoading] = useState(false);
   const [showEmojis, setShowEmojis] = useState(false);
-  const sendPost = () => {
+  const sendPost = async () => {
     if (loading) return;
     setLoading(true);
-    const docRef = 
+    const docRef = await addDoc(collection(db, "posts"), {
+      // id: session.user.uid,
+      // username: session.user.name,
+      // userImg: session.user.image,
+      // tag: session.user.tag,
+      text: input,
+      timestamp: serverTimestamp(),
+    });
   };
   const addImageToPost = () => {};
 
