@@ -4,6 +4,7 @@ import Feed from "../components/Feed";
 import Sidebar from "../components/Sidebar";
 import { getProviders, getSession, useSession } from "next-auth/react";
 import Login from "../components/Login";
+import Modal from "../components/Modal";
 
 const Home: NextPage = ({ trendingResults, followResults, providers }: any) => {
   const { data: session } = useSession();
@@ -17,6 +18,7 @@ const Home: NextPage = ({ trendingResults, followResults, providers }: any) => {
       <main className="bg-black min-h-screen flex max-w-[1500px] mx-auto">
         <Sidebar />
         <Feed />
+        <Modal />
       </main>
     </div>
   );
