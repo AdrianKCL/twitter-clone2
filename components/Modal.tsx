@@ -25,7 +25,7 @@ export default function Modal() {
   const { data: session } = useSession();
   const [isOpen, setIsOpen] = useRecoilState(modalState);
   const [postId, setPostId] = useRecoilState(postIdState);
-  const [post, setPost] = useState();
+  const [post, setPost]: any = useState();
   const [comment, setComment] = useState("");
   const router = useRouter();
 
@@ -43,7 +43,7 @@ export default function Modal() {
     await addDoc(collection(db, "posts", postId, "comments"), {
       comment: comment,
       username: session.user.name,
-      tag: session.user.tag,
+      tag: session.user["tag"],
       userImg: session.user.image,
       timestamp: serverTimestamp(),
     });
@@ -127,7 +127,7 @@ export default function Modal() {
                         value={comment}
                         onChange={(e) => setComment(e.target.value)}
                         placeholder="Tweet your reply"
-                        rows="2"
+                        rows={2}
                         className="bg-transparent outline-none text-[#d9d9d9] text-lg placeholder-gray-500 tracking-wide w-full min-h-[80px]"
                       />
 
