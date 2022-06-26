@@ -9,6 +9,7 @@ module.exports = {
       "upload.wikimedia.org",
       "i.ibb.co",
       "pbs.twimg.com",
+      "rb.gy",
     ],
   },
 };
