@@ -17,7 +17,10 @@ const Home: NextPage = ({ trendingResults, followResults, providers }: any) => {
     <div>
       <Head>
         <title>Twitter Clone</title>
-        <link rel="icon" href="/favicon.ico" />
+        <link
+          rel="icon"
+          href="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Twitter-logo.svg/934px-Twitter-logo.svg.png"
+        />
       </Head>
       <main className="bg-black min-h-screen flex max-w-[1500px] mx-auto">
         <Sidebar />
