@@ -7,6 +7,7 @@ import Login from "../components/Login";
 import Modal from "../components/Modal";
 import { useRecoilState } from "recoil";
 import { modalState } from "../atoms/modalAtom";
+import Widgets from "../components/Widgets";
 
 const Home: NextPage = ({ trendingResults, followResults, providers }: any) => {
   const { data: session } = useSession();
@@ -21,6 +22,10 @@ const Home: NextPage = ({ trendingResults, followResults, providers }: any) => {
       <main className="bg-black min-h-screen flex max-w-[1500px] mx-auto">
         <Sidebar />
         <Feed />
+        <Widgets
+          trendingResults={trendingResults}
+          followResults={followResults}
+        />
         {isOpen && <Modal />}
       </main>
     </div>
@@ -29,7 +34,7 @@ const Home: NextPage = ({ trendingResults, followResults, providers }: any) => {
 
 export default Home;
 export async function getServerSideProps(context: any) {
-  const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
+  const trendingResults = await fetch("https://jsonkeeper.com/b/MXCT").then(
     (res) => res.json()
   );
   const followResults = await fetch("https://jsonkeeper.com/b/SK3E").then(

@@ -17,6 +17,7 @@ import { db } from "../firebase";
 import { ArrowLeftIcon } from "@heroicons/react/solid";
 import Comment from "../components/Comment";
 import Head from "next/head";
+import Widgets from "../components/Widgets";
 
 function PostPage({ trendingResults, followResults, providers }) {
   const { data: session } = useSession();
@@ -82,7 +83,10 @@ function PostPage({ trendingResults, followResults, providers }) {
             </div>
           )}
         </div>
-
+        <Widgets
+          trendingResults={trendingResults}
+          followResults={followResults}
+        />
         {isOpen && <Modal />}
       </main>
     </div>
@@ -92,7 +96,7 @@ function PostPage({ trendingResults, followResults, providers }) {
 export default PostPage;
 
 export async function getServerSideProps(context) {
-  const trendingResults = await fetch("https://jsonkeeper.com/b/NKEV").then(
+  const trendingResults = await fetch("https://jsonkeeper.com/b/MXCT").then(
     (res) => res.json()
   );
   const followResults = await fetch("https://jsonkeeper.com/b/WWMJ").then(
